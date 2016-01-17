@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="pointA" class="org.spring.sample.component.Point">
+		<property name="x" value="10"></property>
+		<property name="y" value="15"></property>
+	</bean>
+	
+	<bean id="pointB" class="org.spring.sample.component.Point">
+		<qualifier value="circleRelated"/>
+		<property name="x" value="15"></property>
+		<property name="y" value="30"></property>
+	</bean>
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+			</list>
+		</property>
+		
+	</bean>
+	<!-- <bean id="center" class="org.spring.sample.component.Circle"></bean> -->
+	<context:annotation-config/>
+	<context:component-scan base-package="org.spring.sample.component"/>
+</beans>
